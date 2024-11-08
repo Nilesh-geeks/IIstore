@@ -57,6 +57,12 @@
         <label for="discount" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Discount</label>
         <span class="text-sm text-red-600 hidden" id="error">Discount is required</span>
       </div>
+      <div class="relative z-0 w-full mb-5">
+        <%= form.text_field :quantity, placeholder: " ", class: "pt-3 pb-2 pr-12 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" %>
+        <div class="absolute top-0 right-0 mt-3 mr-4 text-gray-400"></div>
+        <label for="discount" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Stocks</label>
+        <span class="text-sm text-red-600 hidden" id="error">Stock is required</span>
+      </div>
 
       <% if current_user.role == "seller" || current_user.role == "admin" %>
         <%= hidden_field_tag :user_id, current_user&.id %>

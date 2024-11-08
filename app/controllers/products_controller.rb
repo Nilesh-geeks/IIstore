@@ -3,13 +3,21 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
+    if params[:query]
+      @products=Product.search(query)
+    else
+      @products=Product.all
+    end
     if current_user&.role=="seller"
       @user=User.find(current_user.id)
       @products=@user.products
     else
       @products=Product.all
+      @categories = Category.all
     end
   end
+
+
 
   # GET /products/1 or /products/1.json
   def show
@@ -28,6 +36,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /products or /products.json
