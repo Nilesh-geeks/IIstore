@@ -64,3 +64,4 @@ end
 gem "pry"
 gem "elasticsearch-rails"
 gem "elasticsearch-model"
+gem "kaminari"

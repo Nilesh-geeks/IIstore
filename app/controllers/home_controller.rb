@@ -27,6 +27,9 @@ class HomeController < ApplicationController
     filter_by_category if params[:category].present?
     filter_by_discount if params[:discount].present?
     filter_by_price if params[:price].present?
+
+    # Pagination logic (Kaminari)
+    @products = @products.page(params[:page]).per(6) # Adjust per page number as needed
   end
 
   def admin_page
